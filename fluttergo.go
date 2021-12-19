@@ -20,7 +20,7 @@ type (
 		VerifyTransaction(id int64) (*TransactionResponse, error)
 		ChargeTokenizedCard(token, email, narration, txRef string, amount float64) (response *TransactionResponse, err error)
 		ValidateAccountNumber(account, bank string) (*AccountValidationResponse, error)
-		CreatePermanentVirtualAccount(email, firstName, lastName, bvn, txRef, narration string) (response *VirtualAccountResponse, err error)
+		CreatePermanentVirtualAccount(email, firstName, lastName, bvn, txRef string) (response *VirtualAccountResponse, err error)
 	}
 
 	flutterGo struct {
