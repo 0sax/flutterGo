@@ -9,7 +9,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"reflect"
 	"time"
 )
@@ -61,13 +60,13 @@ func New(cfg Config) (FlutterGo, error) {
 	return g, nil
 }
 
-func NewDefaultConfig(secretKey string) Config {
+func NewDefaultConfig(secretKey, apiUrl string) Config {
 	return Config{
 		AuthKey: secretKey,
 		Client: &http.Client{
 			Timeout: 20 * time.Second,
 		},
-		ApiUrl: os.Getenv("FW_API_URL"),
+		ApiUrl: apiUrl,
 	}
 }
 
