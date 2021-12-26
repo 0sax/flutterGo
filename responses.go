@@ -5,7 +5,6 @@ import (
 	"fmt"
 
 	"log"
-	"os"
 	"time"
 )
 
@@ -136,8 +135,8 @@ type (
 
 )
 
-func (wh WebhookMessage) Verify() (*TransactionResponse, error) {
-	cfg := NewDefaultConfig(os.Getenv("FW_SECRET_KEY"))
+func (wh WebhookMessage) Verify(fwkey, fwUrl string) (*TransactionResponse, error) {
+	cfg := NewDefaultConfig(fwkey, fwUrl)
 	fg, err := New(cfg)
 
 	if err != nil {
